@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Genie CSV</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pick_file">Pick File</string>
+    <string name="error_reading_file">An error occurred while reading the file</string>
+    <string name="unable_to_access">Unable to access the file</string>
+    <string name="parsing_please_wait">Parsing. Please wait..</string>
+    <string name="please_pick_a_csv_file_to_preview">Please pick a CSV file to preview.</string>
+</resources>

@@ -1,0 +1,3 @@
+rootProject.name = "Genie CSV"
+include ':app'
+include ':geniecsv'
