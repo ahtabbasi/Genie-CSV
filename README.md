@@ -7,7 +7,6 @@ A simple CSV Reader app made using MVVM, Repository Pattern, Hilt and Navigation
 
 - [Key Features](#key-features)
 - [Architecture](#architecture)
-- [Testing Strategy](#testing-strategy)
 - [Screenshots](#screenshots)
 - [Libraries](#libraries)
 - [Future Enhancements](#future-enhancements)
