@@ -1,7 +1,7 @@
 package com.abbasi.csvreader.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.abbasi.csvreader.R
 import dagger.hilt.android.AndroidEntryPoint
 

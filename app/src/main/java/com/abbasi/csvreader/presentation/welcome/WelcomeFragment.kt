@@ -5,19 +5,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.abbasi.csvreader.R
 import com.abbasi.csvreader.commons.utils.EventObserver
-import com.abbasi.csvreader.commons.utils.Resource
 import com.abbasi.csvreader.databinding.FragmentWelcomeBinding
 import com.google.android.material.snackbar.Snackbar
-import java.io.File
 
 class WelcomeFragment : Fragment() {
 
@@ -50,7 +46,7 @@ class WelcomeFragment : Fragment() {
      * Initiates the interface for file picker from device
      * and returns success with the file if it has a csv extension
      */
-    private fun pickCsv() {// TODO: Extract this code into a suspending function..
+    private fun pickCsv() {
 
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT).apply {
             addCategory(Intent.CATEGORY_OPENABLE)
@@ -79,7 +75,6 @@ class WelcomeFragment : Fragment() {
     }
 
 
-    //TODO: Maybe move to a separate navigation class
     private fun navigateToLoadingScreen(csvUri: Uri) {
         val action = WelcomeFragmentDirections.actionWelcomeFragmentToPreviewFragment(
             csvUri = csvUri.toString()

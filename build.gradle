@@ -8,6 +8,7 @@ buildscript {
         junit_version = "4.13.2"
         truth_version = "1.0.1"
         mockito_version = "3.5.13"
+        mockk_version = "1.10.6"
     }
 
     repositories {

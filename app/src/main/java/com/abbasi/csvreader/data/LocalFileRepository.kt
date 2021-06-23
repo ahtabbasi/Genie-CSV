@@ -5,21 +5,21 @@ import android.net.Uri
 import com.abbasi.csvreader.R
 import com.abbasi.csvreader.commons.utils.Resource
 import com.abbasi.csvreader.domain.FileRepository
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.lang.Exception
 import javax.inject.Inject
 
 class LocalFileRepository @Inject constructor(
+    private val dispatcher: CoroutineDispatcher,
     private val context: Context
 ) : FileRepository {
 
     @Suppress("BlockingMethodInNonBlockingContext")
     override suspend fun readCsv(uri: Uri): Resource<String> {
 
-        return withContext(Dispatchers.IO) {
+        return withContext(dispatcher) {
             try {
 
                 val stringBuilder = StringBuilder()

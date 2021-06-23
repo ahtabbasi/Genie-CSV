@@ -1,6 +1,5 @@
 package com.abbasi.csvreader.commons.mappers
 
-import com.abbasi.csvreader.presentation.models.Cell
 import com.abbasi.csvreader.presentation.models.ColumnHeader
 
 /**

@@ -9,12 +9,13 @@ import com.abbasi.csvreader.commons.utils.Resource
 import com.abbasi.csvreader.domain.FileRepository
 import com.abbasi.csvreader.domain.ParserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class PreviewViewModel @Inject constructor(
+    private val dispatcher: CoroutineDispatcher,
     private val parserRepository: ParserRepository,
     private val fileRepository: FileRepository
 ) : ViewModel() {
@@ -24,7 +25,7 @@ class PreviewViewModel @Inject constructor(
 
 
     fun parse(uriText: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch(dispatcher) {
 
             _parsedData.postValue(Resource.Loading())
 

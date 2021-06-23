@@ -14,6 +14,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ActivityRetainedScoped
+import kotlinx.coroutines.CoroutineDispatcher
 
 @Module
 @InstallIn(ActivityRetainedComponent::class)
@@ -22,9 +23,13 @@ object DataModule {
     @Provides
     @ActivityRetainedScoped
     fun provideFileRepository(
+        dispatcher: CoroutineDispatcher,
         @ApplicationContext appContext: Context
     ): FileRepository {
-        return LocalFileRepository(appContext)
+        return LocalFileRepository(
+            dispatcher,
+            appContext
+        )
     }
 
     @Provides

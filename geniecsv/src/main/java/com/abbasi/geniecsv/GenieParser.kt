@@ -43,7 +43,7 @@ class GenieParser(override val config: ParserConfig) : Parser {
     /**
      * Removes any empty rows based on config
      */
-    private fun manageEmptyRows(data: MutableList<List<String>>): MutableList<List<String>> { //TODO: Test this method
+    private fun manageEmptyRows(data: MutableList<List<String>>): MutableList<List<String>> {
         if (!config.skipEmptyLines) return data
 
         val result = mutableListOf<List<String>>()
@@ -55,7 +55,7 @@ class GenieParser(override val config: ParserConfig) : Parser {
      * Removes any miss matching rows
      * (i.e. rows with more or less number of fields than first row) based on config
      */
-    private fun manageMissMatchRow(data: MutableList<List<String>>): List<List<String>> { //TODO: Test this method
+    private fun manageMissMatchRow(data: MutableList<List<String>>): List<List<String>> {
         if (!config.skipMissMatchRow || data.isEmpty()) return data
 
         val numOfFieldsInHeader = data.first().size
@@ -67,7 +67,7 @@ class GenieParser(override val config: ParserConfig) : Parser {
     /**
      * Removes any trailing spaces based on config
      */
-    private fun manageTrailingSpaces(data: List<String>): List<String> { //TODO: Test this method
+    private fun manageTrailingSpaces(data: List<String>): List<String> {
         if (!config.removeTrailingSpaces) return data
 
         return data.map { field ->

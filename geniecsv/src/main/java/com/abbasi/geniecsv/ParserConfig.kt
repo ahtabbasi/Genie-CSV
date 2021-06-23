@@ -1,7 +1,6 @@
 package com.abbasi.geniecsv
 
 import com.abbasi.geniecsv.utils.SameLineBreakOrSeparatorOrQuoteCharException
-import java.nio.charset.Charset
 
 
 class ParserConfig private constructor(
@@ -27,7 +26,7 @@ class ParserConfig private constructor(
                 || lineBreakCharacter == quoteCharacter
                 || separatorCharacter == quoteCharacter
             )
-                throw SameLineBreakOrSeparatorOrQuoteCharException() //TODO: Test this
+                throw SameLineBreakOrSeparatorOrQuoteCharException()
             else
                 return ParserConfig(
                     lineBreakCharacter,
