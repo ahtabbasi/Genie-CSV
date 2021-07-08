@@ -6,6 +6,21 @@ plugins {
     id 'androidx.navigation.safeargs.kotlin'
 }
 
+ext.versionMajor = 1
+ext.versionMinor = 0
+ext.versionPatch = 0
+
+def computeVersionName() {
+    return String.format('%d.%d.%d', versionMajor, versionMinor, versionPatch)
+}
+
+def computeVersionCode() {
+    return (versionMajor * 1000000) + (versionMinor * 100000) + (versionPatch * 10000) + Integer.valueOf(System.env.BUILD_NUMBER ?: 0)
+}
+
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -14,10 +29,19 @@ android {
         applicationId "com.abbasi.csvreader"
         minSdkVersion 23
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode computeVersionCode()
+        versionName computeVersionName()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        config {
+            keyAlias localProperties['alias']
+            keyPassword localProperties['keyPass']
+            storeFile file(localProperties['keystore'])
+            storePassword localProperties['storePass']
+        }
     }
 
     buildTypes {
