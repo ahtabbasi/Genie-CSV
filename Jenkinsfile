@@ -33,9 +33,12 @@ def isDeployCandidate() {
 }
 
 pipeline {
-    agent { dockerfile true }
+//    agent { dockerfile true }
+    agent any
+    tools {dockerTool  "docker" }
+
     environment {
-        appName = 'jenkins-blog'
+        appName = 'genie-csv'
 
         KEY_PASSWORD = credentials('keyPassword')
         KEY_ALIAS = credentials('keyAlias')
