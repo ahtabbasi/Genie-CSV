@@ -33,18 +33,26 @@ def isDeployCandidate() {
 }
 
 pipeline {
+    echo 'Pipeline Started'
 //    agent { dockerfile true }
     agent any
-    tools {dockerTool  "docker" }
+    tools { dockerTool "docker" }
 
     environment {
+        echo 'Inside Environment'
         appName = 'genie-csv'
 
         KEY_PASSWORD = credentials('keyPassword')
         KEY_ALIAS = credentials('keyAlias')
         KEYSTORE = credentials('keystore')
+        echo 'Printing Keystore:'
+        echo KEYSTORE
         STORE_PASSWORD = credentials('storePassword')
+        echo 'Printing STORE_PASSWORD:'
+        echo STORE_PASSWORD
     }
+    echo 'Done setting up environment'
+
     stages {
         stage('Run Tests') {
             steps {
