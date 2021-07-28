@@ -40,8 +40,8 @@ pipeline {
     environment {
         appName = 'genie-csv'
 
-        KEY_PASSWORD = credentials('keyPassword')
-        KEY_ALIAS = credentials('keyAlias')
+        KEY_PASSWORD = credentials('keyPass')
+        KEY_ALIAS = credentials('alias')
         KEYSTORE = credentials('keystore')
         STORE_PASSWORD = credentials('storePass')
     }
