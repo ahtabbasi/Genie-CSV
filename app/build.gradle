@@ -37,10 +37,10 @@ android {
 
     signingConfigs {
         config {
-            keyAlias localProperties['alias']
-            keyPassword localProperties['keyPass']
-            storeFile file(localProperties['keystore'])
-            storePassword localProperties['storePass']
+            keyAlias alias
+            keyPassword keyPass
+            storeFile file(keystore)
+            storePassword storePass
         }
     }
 
