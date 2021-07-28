@@ -33,7 +33,7 @@ def isDeployCandidate() {
 }
 
 pipeline {
-    echo 'Pipeline Started'
+    println 'Pipeline Started'
 //    agent { dockerfile true }
     agent any
     tools { dockerTool "docker" }
