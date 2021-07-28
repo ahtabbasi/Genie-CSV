@@ -44,10 +44,10 @@ pipeline {
 
         KEY_PASSWORD = credentials('keyPassword')
         KEY_ALIAS = credentials('keyAlias')
+        STORE_PASSWORD = credentials('storePassword')
         KEYSTORE = credentials('keystore')
 //        echo 'Printing Keystore:'
 //        echo KEYSTORE
-        STORE_PASSWORD = credentials('storePassword')
 //        echo 'Printing STORE_PASSWORD:'
 //        echo STORE_PASSWORD
     }
